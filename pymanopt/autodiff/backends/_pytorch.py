@@ -31,7 +31,7 @@ class _PyTorchBackend(Backend):
         Since torch does not support negative strides, we create a copy of the
         array to reset the strides in that case.
         """
-        strides = np.array(array.strides)
+        strides = np.array(array.stride())
         if np.any(strides < 0):
             warnings.warn(
                 "PyTorch does not support numpy arrays with negative strides. "
